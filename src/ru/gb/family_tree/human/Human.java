@@ -1,6 +1,7 @@
 package ru.gb.family_tree.human;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Human {
@@ -56,6 +57,10 @@ public class Human {
         this.name = name;
         this.dob = dob;
         this.gender = gender;
+        Human temp1 = new Human();
+        Human temp2 = new Human();
+        this.mother = temp1;
+        this.father = temp2;
     }
 
     public Human(String name) {
@@ -63,7 +68,7 @@ public class Human {
     }
 
     public Human(){
-        this("");
+        this("null");
     }
 
 
@@ -92,8 +97,18 @@ public class Human {
         return mother;
     }
 
+    public String getMotherName() {
+        if (this.mother.name==null) return "null";
+        return this.mother.name;
+    }
+
     public Human getFather() {
         return father;
+    }
+
+    public String getFatherName(){
+        if (this.father.name==null) return "null";
+        return this.father.name;
     }
 
     // # Сеттеры
@@ -125,16 +140,49 @@ public class Human {
         this.father = father;
     }
 
+    public void addChild(Human child){
+        if (this.gender==gender.Male){
+            child.setFather(this);
+        }
+        if (this.gender==gender.Female){
+            child.setMother(this);
+        }
+        if (this.children == null) {
+            children = new ArrayList<>();
+        }
+        this.children.add(child);
+    }
+
+    public void addParent(Human parent){
+        if (parent.gender==gender.Male){
+            this.setFather(parent);
+        }
+        if (parent.gender==gender.Female){
+            this.setMother(parent);
+        }
+    }
+
     @Override
     public String toString() {
+        StringBuilder childrenString = new StringBuilder();
+        if (children!=null){
+            for (Human child : children) {
+                childrenString.append(child.name);
+                childrenString.append(", ");
+            }
+            childrenString.toString();
+        }
+        else {
+            childrenString.append("null");
+        }
         return "Human{" +
                 "name='" + name + '\'' +
                 ", dob=" + dob +
                 ", dod=" + dod +
                 ", gender=" + gender +
-                ", children=" + children +
-                ", mother=" + mother +
-                ", father=" + father +
+                ", children=" + childrenString +
+                ", mother=" + getMotherName() +
+                ", father=" + getFatherName() +
                 '}';
     }
 }
