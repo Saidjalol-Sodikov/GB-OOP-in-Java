@@ -68,7 +68,7 @@ public class Human {
     }
 
     public Human(){
-        this("null");
+        this(null);
     }
 
 
@@ -93,23 +93,31 @@ public class Human {
         return children;
     }
 
+    public String getChildrenNames(){
+        StringBuilder childrenString = new StringBuilder();
+        childrenString.append("{");
+        if (this.getChildren()!=null){
+            for (Human child : this.getChildren()) {
+                childrenString.append(child.name);
+                childrenString.append(", ");
+            }
+            childrenString.deleteCharAt(childrenString.length()-1);
+            childrenString.deleteCharAt(childrenString.length()-1);
+            childrenString.append("}");
+        }
+        else {
+            return null;
+        }
+        return childrenString.toString();
+    }
     public Human getMother() {
         return mother;
-    }
-
-    public String getMotherName() {
-        if (this.mother.name==null) return "null";
-        return this.mother.name;
     }
 
     public Human getFather() {
         return father;
     }
 
-    public String getFatherName(){
-        if (this.father.name==null) return "null";
-        return this.father.name;
-    }
 
     // # Сеттеры
     public void setName(String name) {
@@ -141,10 +149,10 @@ public class Human {
     }
 
     public void addChild(Human child){
-        if (this.gender==gender.Male){
+        if (this.gender==gender.MALE){
             child.setFather(this);
         }
-        if (this.gender==gender.Female){
+        if (this.gender==gender.FEMALE){
             child.setMother(this);
         }
         if (this.children == null) {
@@ -154,36 +162,26 @@ public class Human {
     }
 
     public void addParent(Human parent){
-        if (parent.gender==gender.Male){
+        if (parent.gender==gender.MALE){
             this.setFather(parent);
         }
-        if (parent.gender==gender.Female){
+        if (parent.gender==gender.FEMALE){
             this.setMother(parent);
         }
+        parent.addChild(this);
     }
 
     @Override
     public String toString() {
-        StringBuilder childrenString = new StringBuilder();
-        if (children!=null){
-            for (Human child : children) {
-                childrenString.append(child.name);
-                childrenString.append(", ");
-            }
-            childrenString.toString();
-        }
-        else {
-            childrenString.append("null");
-        }
         return "Human{" +
                 "name='" + name + '\'' +
                 ", dob=" + dob +
                 ", dod=" + dod +
                 ", gender=" + gender +
-                ", children=" + childrenString +
-                ", mother=" + getMotherName() +
-                ", father=" + getFatherName() +
-                '}';
+                ", children=" + getChildrenNames() +
+                ", mother='" + this.getMother().getName() +
+                "', father='" + this.getFather().getName() +
+                "'}";
     }
 }
 
