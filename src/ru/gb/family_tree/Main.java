@@ -1,5 +1,6 @@
 package ru.gb.family_tree;
 
+import ru.gb.family_tree.service.Service;
 import ru.gb.family_tree.tree.Tree;
 import ru.gb.family_tree.writer.FileHandler;
 
@@ -8,13 +9,9 @@ public class Main {
     public static void main(String[] args) {
         String filePath = "src/ru/gb/family_tree/writer/tree.sav";
 
-        Tree testTree1 = read(filePath);
-        System.out.println(testTree1);
+        Service tree = new Service();
 
 
-
-
-        save(testTree1, filePath);
 
     }
 
@@ -27,5 +24,4 @@ public class Main {
         FileHandler fileHandler = new FileHandler();
         return (Tree) fileHandler.read(filePath);
     }
-
 }

@@ -22,6 +22,10 @@ public class Tree implements Serializable{
 
     @Override
     public String toString() {
+        return getInfo();
+    }
+
+    private String getInfo() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Члены семьи:\n");
         for (Human human : familyList) {
@@ -30,7 +34,6 @@ public class Tree implements Serializable{
         }
         return stringBuilder.toString();
     }
-
     public Human getByName(String name){
         for (Human human : this.familyList) {
             if (human.getName() == name) {
