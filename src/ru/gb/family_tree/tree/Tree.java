@@ -1,10 +1,11 @@
 package ru.gb.family_tree.tree;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import ru.gb.family_tree.human.Human;
 
-public class Tree {
+public class Tree implements Serializable{
     private List<Human> familyList;
     
     public Tree() {
