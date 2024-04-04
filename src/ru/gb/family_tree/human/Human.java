@@ -34,43 +34,10 @@ public class Human {
         this.father = father;
     }
 
-    /**
-     * Конструктор класса Human для семейного древа.
-     * Для живого человека
-     * @param name Имя
-     * @param dob Дата рождения
-     * @param gender Пол
-     * @param children Список детей
-     * @param mother Мать
-     * @param father Отец
-     */
-    public Human(String name, LocalDate dob, Gender gender, List<Human> children, Human mother, Human father) {
-        this.name = name;
-        this.dob = dob;
-        this.gender = gender;
-        this.children = children;
-        this.mother = mother;
-        this.father = father;
-    }
 
     public Human(String name, LocalDate dob, Gender gender) {
-        this.name = name;
-        this.dob = dob;
-        this.gender = gender;
-        Human temp1 = new Human();
-        Human temp2 = new Human();
-        this.mother = temp1;
-        this.father = temp2;
+        this(name, dob, null, gender, null, null, null);
     }
-
-    public Human(String name) {
-        this.name = name;
-    }
-
-    public Human(){
-        this(null);
-    }
-
 
     // # Геттеры
     public String getName() {
@@ -173,15 +140,50 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" +
-                "name='" + name + '\'' +
-                ", dob=" + dob +
-                ", dod=" + dod +
-                ", gender=" + gender +
-                ", children=" + getChildrenNames() +
-                ", mother='" + this.getMother().getName() +
-                "', father='" + this.getFather().getName() +
-                "'}";
+        return getInfo();
+    }
+
+    private String getInfo() {
+        StringBuilder stringBuilder = new StringBuilder();
+        
+        stringBuilder.append("Имя: ");
+        stringBuilder.append(name);
+        
+        stringBuilder.append(", дата рождения: ");
+        stringBuilder.append(dob);
+        
+        stringBuilder.append(", пол: ");
+        stringBuilder.append(gender);
+        
+        stringBuilder.append(", дата смерти: ");
+        if (dod != null) {
+        stringBuilder.append(dod);
+        } else {
+        stringBuilder.append("неизвестна");
+        }
+        
+        stringBuilder.append(", отец: ");
+        if (father != null) {
+            stringBuilder.append(getFather().getName());
+        } else {
+            stringBuilder.append("неизвестен");
+        }
+        
+        stringBuilder.append(", мать: ");
+        if (mother != null) {
+            stringBuilder.append(getMother().getName());
+        } else {
+            stringBuilder.append("неизвестна");
+        }
+        
+        stringBuilder.append(", дети: ");
+        if (children != null) {
+            stringBuilder.append(getChildrenNames());
+        } else {
+            stringBuilder.append("отсутствуют;");
+        }  
+        
+        return stringBuilder.toString();
     }
 }
 

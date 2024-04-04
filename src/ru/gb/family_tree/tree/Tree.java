@@ -35,13 +35,15 @@ public class Tree {
         return null;
     }
 
-    private String getLikeTable (List<Human> familyList){
+    // //TODO Вывести список членов семьи в виде таблицы
+    // private String getLikeTable (List<Human> familyList){
         
-        return null;
-    }
+    //     return null;
+    // }
     
-    private String getLikeTree (List<Human> familyList) {
+    // //TODO Вывести список членов семьи в виде дерева
+    // private String getLikeTree (List<Human> familyList) {
         
-        return null;
-    }
+    //     return null;
+    // }
 }

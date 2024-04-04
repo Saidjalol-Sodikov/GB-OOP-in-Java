@@ -45,7 +45,7 @@ public class Main {
         familyTree1.addHuman(human01);
 
         // Показываем одного человека
-        //System.out.println(human00);
+        System.out.println(human01);
 
         // Показываем семейное древо
         //System.out.print(familyTree1);
