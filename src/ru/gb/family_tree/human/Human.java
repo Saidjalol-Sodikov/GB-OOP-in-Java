@@ -2,10 +2,11 @@ package ru.gb.family_tree.human;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Human implements Serializable {
+public class Human implements Serializable, Comparable<Human> {
     private int id;
     private String name;
     private LocalDate dob, dod;
@@ -92,6 +93,20 @@ public class Human implements Serializable {
     public Human getFather() {
         return father;
     }
+
+    private int getPeriod(LocalDate start, LocalDate end) {
+        Period diff = Period.between(start,end);
+        return diff.getYears();
+    }
+
+    public int getAge() {
+        if (dod == null) {
+            return getPeriod(dob, LocalDate.now());
+        } else {
+            return getPeriod(dob, dod);
+        }
+    }
+
 
 
     // # Сеттеры
@@ -201,6 +216,11 @@ public class Human implements Serializable {
         }  
         
         return stringBuilder.toString();
+    }
+
+    @Override
+    public int compareTo(Human o) {
+        return this.name.compareTo(o.name);
     }
 }
 
