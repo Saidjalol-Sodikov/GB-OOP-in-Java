@@ -163,7 +163,7 @@ public class Human implements Serializable {
         stringBuilder.append("ID: ");
         stringBuilder.append(id);
 
-        stringBuilder.append("Имя: ");
+        stringBuilder.append(") Имя: ");
         stringBuilder.append(name);
         
         stringBuilder.append(", дата рождения: ");

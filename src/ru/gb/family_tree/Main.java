@@ -1,17 +1,25 @@
 package ru.gb.family_tree;
 
+import ru.gb.family_tree.human.Gender;
+import ru.gb.family_tree.human.Human;
 import ru.gb.family_tree.service.Service;
 import ru.gb.family_tree.tree.Tree;
 import ru.gb.family_tree.writer.FileHandler;
+
+import java.time.LocalDate;
 
 public class Main {
 
     public static void main(String[] args) {
         String filePath = "src/ru/gb/family_tree/writer/tree.sav";
 
-        Service tree = new Service();
+        Service service = new Service();
 
+        Tree tree = read(filePath);
 
+        System.out.println(tree);
+
+        save(tree, filePath);
 
     }
 
