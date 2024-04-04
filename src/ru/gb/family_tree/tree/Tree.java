@@ -12,6 +12,10 @@ public class Tree implements Serializable{
         familyList = new ArrayList<>();
     }
 
+    public List<Human> getFamilyList() {
+        return familyList;
+    }
+
     public void addHuman(Human human){
         familyList.add(human);
     }
