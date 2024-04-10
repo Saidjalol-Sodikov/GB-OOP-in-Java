@@ -2,10 +2,12 @@ package ru.gb.family_tree.human;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Human implements Serializable {
+public class Human implements Serializable, Comparable<Human> {
+    private int id;
     private String name;
     private LocalDate dob, dod;
     private Gender gender;
@@ -26,6 +28,7 @@ public class Human implements Serializable {
      * @param father Отец
      */
     public Human(String name, LocalDate dob, LocalDate dod , Gender gender, List<Human> children, Human mother, Human father) {
+        this.id = -1;
         this.name = name;
         this.dob = dob;
         this.dod = dod;
@@ -41,6 +44,11 @@ public class Human implements Serializable {
     }
 
     // # Геттеры
+
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -86,8 +94,28 @@ public class Human implements Serializable {
         return father;
     }
 
+    private int getPeriod(LocalDate start, LocalDate end) {
+        Period diff = Period.between(start,end);
+        return diff.getYears();
+    }
+
+    public int getAge() {
+        if (dod == null) {
+            return getPeriod(dob, LocalDate.now());
+        } else {
+            return getPeriod(dob, dod);
+        }
+    }
+
+
 
     // # Сеттеры
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -146,8 +174,11 @@ public class Human implements Serializable {
 
     private String getInfo() {
         StringBuilder stringBuilder = new StringBuilder();
-        
-        stringBuilder.append("Имя: ");
+
+        stringBuilder.append("ID: ");
+        stringBuilder.append(id);
+
+        stringBuilder.append(") Имя: ");
         stringBuilder.append(name);
         
         stringBuilder.append(", дата рождения: ");
@@ -185,6 +216,11 @@ public class Human implements Serializable {
         }  
         
         return stringBuilder.toString();
+    }
+
+    @Override
+    public int compareTo(Human o) {
+        return this.name.compareTo(o.name);
     }
 }
 
