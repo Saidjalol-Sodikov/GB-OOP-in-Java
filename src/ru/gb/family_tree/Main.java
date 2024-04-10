@@ -4,6 +4,7 @@ import ru.gb.family_tree.human.Gender;
 import ru.gb.family_tree.human.Human;
 import ru.gb.family_tree.service.Service;
 import ru.gb.family_tree.tree.Tree;
+import ru.gb.family_tree.tree.TreeElement;
 import ru.gb.family_tree.writer.FileHandler;
 
 import java.time.LocalDate;
@@ -14,38 +15,38 @@ public class Main {
         String filePath = "src/ru/gb/family_tree/writer/tree.sav";
 
         Service service = new Service();
-        //Tree tree = testTree();
-        Tree tree = read(filePath);
-
-        //System.out.println(service.getTreeInfo(tree));
-
-        service.sortByName(tree);
+        //Tree<TreeElement> tree = testTree();
+        Tree<TreeElement> tree = read(filePath);
 
         System.out.println(service.getTreeInfo(tree));
 
-        //service.sortByAge(tree);
+        //service.sortByName(tree);
 
         //System.out.println(service.getTreeInfo(tree));
 
-        //save(tree, filePath);
+
+        //service.sortByAge(tree);
+        //System.out.println(service.getTreeInfo(tree));
+
+        save(tree, filePath);
 
 
 
     }
 
-    static void save (Tree tree, String filePath){
+    static void save (Tree<TreeElement> tree, String filePath){
         FileHandler fileHandler = new FileHandler();
         fileHandler.save(tree, filePath);
     }
 
-    static Tree read(String filePath) {
+    static Tree<TreeElement> read(String filePath) {
         FileHandler fileHandler = new FileHandler();
-        return (Tree) fileHandler.read(filePath);
+        return (Tree<TreeElement>) fileHandler.read(filePath);
     }
 
-    static Tree testTree () {
+    static Tree<TreeElement> testTree () {
         Service service = new Service();
-        Tree tree = new Tree();
+        Tree<TreeElement> tree = new Tree<>();
 
         Human Misha = new Human("Миша", LocalDate.of(2002, 1, 1 ), Gender.MALE);
         Human Dasha = new Human("Даша", LocalDate.of(2005, 1, 1 ), Gender.FEMALE);

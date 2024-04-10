@@ -25,7 +25,7 @@ public class Service {
     public String getTreeInfo (Tree tree){
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Список членов семьи\n");
-        for (Human human : tree){
+        for (Object human : tree){
             stringBuilder.append(human);
             stringBuilder.append("\n");
         }
