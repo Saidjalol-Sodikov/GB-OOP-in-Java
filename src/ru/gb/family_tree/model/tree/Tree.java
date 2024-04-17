@@ -1,12 +1,12 @@
-package ru.gb.family_tree.tree;
+package ru.gb.family_tree.model.tree;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import ru.gb.family_tree.human.Human;
-import ru.gb.family_tree.service.comparators.HumanComparatorByAge;
-import ru.gb.family_tree.service.comparators.HumanComparatorByName;
+
+import ru.gb.family_tree.model.service.comparators.HumanComparatorByAge;
+import ru.gb.family_tree.model.service.comparators.HumanComparatorByName;
 
 public class Tree<E extends TreeElement> implements Serializable, Iterable<E> {
     private final List<E> familyList;

@@ -1,13 +1,10 @@
-package ru.gb.family_tree.service;
+package ru.gb.family_tree.model.service;
 
-import ru.gb.family_tree.human.Gender;
-import ru.gb.family_tree.human.Human;
-import ru.gb.family_tree.service.comparators.HumanComparatorByAge;
-import ru.gb.family_tree.service.comparators.HumanComparatorByName;
-import ru.gb.family_tree.tree.Tree;
+import ru.gb.family_tree.model.human.Gender;
+import ru.gb.family_tree.model.human.Human;
+import ru.gb.family_tree.model.tree.Tree;
 
 import java.time.LocalDate;
-import java.util.Collections;
 
 public class Service {
     private int genId;

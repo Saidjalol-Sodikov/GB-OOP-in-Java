@@ -1,11 +1,11 @@
 package ru.gb.family_tree;
 
-import ru.gb.family_tree.human.Gender;
-import ru.gb.family_tree.human.Human;
-import ru.gb.family_tree.service.Service;
-import ru.gb.family_tree.tree.Tree;
-import ru.gb.family_tree.tree.TreeElement;
-import ru.gb.family_tree.writer.FileHandler;
+import ru.gb.family_tree.model.human.Gender;
+import ru.gb.family_tree.model.human.Human;
+import ru.gb.family_tree.model.service.Service;
+import ru.gb.family_tree.model.tree.Tree;
+import ru.gb.family_tree.model.tree.TreeElement;
+import ru.gb.family_tree.model.writer.FileHandler;
 
 import java.time.LocalDate;
 

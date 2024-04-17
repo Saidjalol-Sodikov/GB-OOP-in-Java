@@ -1,6 +1,6 @@
-package ru.gb.family_tree.iterators;
+package ru.gb.family_tree.model.iterators;
 
-import ru.gb.family_tree.tree.TreeElement;
+import ru.gb.family_tree.model.tree.TreeElement;
 
 import java.util.Iterator;
 import java.util.List;
