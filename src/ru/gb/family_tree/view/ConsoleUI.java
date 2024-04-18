@@ -122,7 +122,7 @@ public class ConsoleUI implements View{
     }
 
     private ViewGender checkUserChoiceOfGender(String userChoice) {
-        int choice = 0;
+        int choice;
         ViewGender viewGender = ViewGender.NULL;
         if (userChoice.matches("\\d+")) {
             choice = Integer.parseInt(userChoice);
@@ -163,8 +163,8 @@ public class ConsoleUI implements View{
     }
 
     public void saveTree() {
-        boolean saveSucces = presenter.saveTree();
-        if (saveSucces) {
+        boolean saveSuccess = presenter.saveTree();
+        if (saveSuccess) {
             System.out.println("Сохранение прошло успешно.");
         }
     }
