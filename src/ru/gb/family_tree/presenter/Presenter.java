@@ -8,8 +8,8 @@ import ru.gb.family_tree.view.View;
 import java.time.LocalDate;
 
 public class Presenter {
-    View view;
-    Service service;
+    private View view;
+    private Service service;
 
     public Presenter(View view) {
         this.view = view;
