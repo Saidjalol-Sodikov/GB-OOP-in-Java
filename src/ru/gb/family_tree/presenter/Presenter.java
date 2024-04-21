@@ -26,8 +26,8 @@ public class Presenter {
         service.addHuman(name, LocalDate.of(year, month, day), gender);
     }
 
-    public void getTree() {
-        service.getTreeInfo();
+    public String getTree() {
+        return service.getTreeInfo();
     }
 
     public void sortByAge() {

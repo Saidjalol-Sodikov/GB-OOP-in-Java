@@ -25,15 +25,14 @@ public class Service {
         this.tree.addHuman(human);
     }
 
-    public void getTreeInfo (){
+    public String getTreeInfo (){
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Список членов семьи:\n");
         for (Object human : this.tree){
             stringBuilder.append(human);
             stringBuilder.append("\n");
         }
-
-        System.out.println(stringBuilder);
+        return stringBuilder.toString();
     }
 
     public void sortByName() {

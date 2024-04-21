@@ -141,7 +141,7 @@ public class ConsoleUI implements View{
     }
 
     public void getTree() {
-        presenter.getTree();
+        System.out.println(presenter.getTree());
     }
 
     public boolean tryToInt (String str) {
