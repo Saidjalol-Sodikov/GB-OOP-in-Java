@@ -5,7 +5,7 @@ import ru.gb.family_tree.model.tree.Tree;
 
 import java.io.*;
 
-public class FileHandler implements Writable {
+public class FileHandler implements Savable, Readable {
 
     public String filePath = "src/ru/gb/family_tree/model/writer/tree.sav";
 

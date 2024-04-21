@@ -61,15 +61,4 @@ public class Tree<E extends TreeElement> implements Serializable, Iterable<E> {
         return familyList.iterator();
     }
 
-    ////TODO Вывести список членов семьи в виде таблицы
-    // private String getLikeTable (List<Human> familyList){
-        
-    //     return null;
-    // }
-    
-    // //TODO Вывести список членов семьи в виде дерева
-    // private String getLikeTree (List<Human> familyList) {
-        
-    //     return null;
-    // }
 }
