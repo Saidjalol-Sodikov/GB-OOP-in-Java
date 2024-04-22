@@ -1,7 +1,5 @@
 package ru.gb.family_tree.presenter;
 
-import ru.gb.family_tree.model.human.Gender;
-import ru.gb.family_tree.view.ViewGender;
 import ru.gb.family_tree.model.service.Service;
 import ru.gb.family_tree.view.View;
 
@@ -16,14 +14,8 @@ public class Presenter {
         service = new Service();
     }
 
-    public void addObject(String name, int day, int month, int year, ViewGender viewGender) {
-        Gender gender = null;
-        if (viewGender == ViewGender.MALE) {
-            gender = Gender.MALE;
-        } else if (viewGender == ViewGender.FEMALE) {
-            gender = Gender.FEMALE;
-        }
-        service.addHuman(name, LocalDate.of(year, month, day), gender);
+    public void addObject(String name, LocalDate dob, String viewGender) {
+        service.addHuman(name, dob, viewGender);
     }
 
     public String getTree() {
@@ -49,4 +41,5 @@ public class Presenter {
     public void addParentByID(int parentID, int childID) {
         service.addParentByID(parentID, childID);
     }
+
 }

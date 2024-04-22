@@ -4,6 +4,7 @@ import ru.gb.family_tree.model.human.Gender;
 import ru.gb.family_tree.model.human.Human;
 import ru.gb.family_tree.model.tree.Tree;
 import ru.gb.family_tree.model.writer.FileHandler;
+import ru.gb.family_tree.view.ViewGender;
 
 import java.time.LocalDate;
 
@@ -24,6 +25,19 @@ public class Service {
         human.setId(genId++);
         this.tree.addHuman(human);
     }
+
+    public void addHuman (String name, LocalDate dob, String strGender){
+        Gender gender = null;
+        if (strGender == ViewGender.MALE.toString()) {
+            gender = Gender.MALE;
+        } else if (strGender == ViewGender.FEMALE.toString()) {
+            gender = Gender.FEMALE;
+        }
+        Human human = new Human(name, dob, gender);
+        human.setId(genId++);
+        this.tree.addHuman(human);
+    }
+
 
     public String getTreeInfo (){
         StringBuilder stringBuilder = new StringBuilder();

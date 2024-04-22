@@ -2,6 +2,7 @@ package ru.gb.family_tree.view;
 
 import ru.gb.family_tree.presenter.Presenter;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class ConsoleUI implements View{
@@ -95,7 +96,7 @@ public class ConsoleUI implements View{
             System.out.println("Так как вы ввели некорректное значение, значение останется по умолчанию.");
         }
 
-        presenter.addObject(name, dayOfMonth, month, year, choiceGender);
+        presenter.addObject(name, LocalDate.of(year, month, dayOfMonth), choiceGender.toString());
 
         presenter.getTree();
     }
