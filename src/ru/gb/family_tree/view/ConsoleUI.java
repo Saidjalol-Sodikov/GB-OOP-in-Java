@@ -98,7 +98,7 @@ public class ConsoleUI implements View{
 
         presenter.addObject(name, LocalDate.of(year, month, dayOfMonth), choiceGender.toString());
 
-        presenter.getTree();
+        printAnswer(presenter.getTree());
     }
 
     private ViewGender getViewGender() {
@@ -155,12 +155,12 @@ public class ConsoleUI implements View{
 
     public void sortByAge() {
         presenter.sortByAge();
-        presenter.getTree();
+        printAnswer(presenter.getTree());
     }
 
     public void sortByName() {
         presenter.sortByName();
-        presenter.getTree();
+        printAnswer(presenter.getTree());
     }
 
     public void saveTree() {
@@ -172,11 +172,11 @@ public class ConsoleUI implements View{
 
     public void readTree() {
         presenter.readTree();
-        presenter.getTree();
+        printAnswer(presenter.getTree());
     }
 
     public void addParent() {
-        presenter.getTree();
+        printAnswer(presenter.getTree());
         System.out.println("Введите ID родителя:");
         String strParentID = scanner.nextLine();
         int parentID = Integer.parseInt(strParentID);
@@ -187,7 +187,7 @@ public class ConsoleUI implements View{
 
 
         presenter.addParentByID(parentID, childID);
-        presenter.getTree();
+        printAnswer(presenter.getTree());
         }
 
 }

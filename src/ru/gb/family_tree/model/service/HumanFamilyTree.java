@@ -4,6 +4,7 @@ import ru.gb.family_tree.model.human.Gender;
 import ru.gb.family_tree.model.human.Human;
 import ru.gb.family_tree.model.tree.Tree;
 import ru.gb.family_tree.model.writer.FileHandler;
+import ru.gb.family_tree.model.writer.Writable;
 import ru.gb.family_tree.view.ViewGender;
 
 import java.time.LocalDate;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 public class HumanFamilyTree implements FamilyTreeService {
     private int genId;
     private Tree<Human> tree;
-    private final FileHandler fH;
+    private final Writable fH;
 
     //Пока работаю только с одним древом, в дальнейшем можно создать список деревьев
 
@@ -61,7 +62,7 @@ public class HumanFamilyTree implements FamilyTreeService {
     }
 
     public void read (){
-        this.tree = fH.read();
+        this.tree = (Tree<Human>) fH.read();
         int maxID = this.tree.getFamilyList().getFirst().getId();
         for (Human human : this.tree){
             if(human.getId() > maxID){
