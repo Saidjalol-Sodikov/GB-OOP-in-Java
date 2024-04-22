@@ -8,14 +8,14 @@ import ru.gb.family_tree.view.ViewGender;
 
 import java.time.LocalDate;
 
-public class Service {
+public class HumanFamilyTree implements FamilyTreeService {
     private int genId;
     private Tree<Human> tree;
     private final FileHandler fH;
 
     //Пока работаю только с одним древом, в дальнейшем можно создать список деревьев
 
-    public Service() {
+    public HumanFamilyTree() {
         tree = new Tree<>();
         fH = new FileHandler();
     }

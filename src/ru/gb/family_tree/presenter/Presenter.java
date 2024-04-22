@@ -1,17 +1,19 @@
 package ru.gb.family_tree.presenter;
 
-import ru.gb.family_tree.model.service.Service;
+import ru.gb.family_tree.model.service.FamilyTreeService;
+import ru.gb.family_tree.model.service.HumanFamilyTree;
 import ru.gb.family_tree.view.View;
 
+import java.security.Provider;
 import java.time.LocalDate;
 
 public class Presenter {
     private View view;
-    private Service service;
+    private FamilyTreeService service;
 
     public Presenter(View view) {
         this.view = view;
-        service = new Service();
+        service = new HumanFamilyTree();
     }
 
     public void addObject(String name, LocalDate dob, String viewGender) {
