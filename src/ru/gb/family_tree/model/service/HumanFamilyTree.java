@@ -20,24 +20,23 @@ public class HumanFamilyTree implements FamilyTreeService {
         fH = new FileHandler();
     }
 
+
     public void addHuman (String name, LocalDate dob, Gender gender){
         Human human = new Human(name, dob, gender);
         human.setId(genId++);
         this.tree.addHuman(human);
     }
 
-    public void addHuman (String name, LocalDate dob, String strGender){
+    @Override
+    public void addObject (String name, LocalDate dob, String strGender){
         Gender gender = null;
         if (strGender == ViewGender.MALE.toString()) {
             gender = Gender.MALE;
         } else if (strGender == ViewGender.FEMALE.toString()) {
             gender = Gender.FEMALE;
         }
-        Human human = new Human(name, dob, gender);
-        human.setId(genId++);
-        this.tree.addHuman(human);
+        addHuman(name, dob, gender);
     }
-
 
     public String getTreeInfo (){
         StringBuilder stringBuilder = new StringBuilder();

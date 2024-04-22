@@ -4,12 +4,11 @@ import ru.gb.family_tree.model.service.FamilyTreeService;
 import ru.gb.family_tree.model.service.HumanFamilyTree;
 import ru.gb.family_tree.view.View;
 
-import java.security.Provider;
 import java.time.LocalDate;
 
 public class Presenter {
-    private View view;
-    private FamilyTreeService service;
+    private final View view;
+    private final FamilyTreeService service;
 
     public Presenter(View view) {
         this.view = view;
@@ -17,7 +16,7 @@ public class Presenter {
     }
 
     public void addObject(String name, LocalDate dob, String viewGender) {
-        service.addHuman(name, dob, viewGender);
+        service.addObject(name, dob, viewGender);
     }
 
     public String getTree() {

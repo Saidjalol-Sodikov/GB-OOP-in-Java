@@ -3,7 +3,7 @@ package ru.gb.family_tree.model.service;
 import java.time.LocalDate;
 
 public interface FamilyTreeService {
-    void addHuman(String name, LocalDate dob, String viewGender);
+    void addObject(String name, LocalDate dob, String viewGender);
 
     String getTreeInfo();
 
