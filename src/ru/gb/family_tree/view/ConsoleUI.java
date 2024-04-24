@@ -185,9 +185,12 @@ public class ConsoleUI implements View{
         String strChildID = scanner.nextLine();
         int childID = Integer.parseInt(strChildID);
 
-
-        presenter.addParentByID(parentID, childID);
-        printAnswer(presenter.getTree());
+        boolean parentAdded = presenter.addParentByID(parentID, childID);
+        if (parentAdded) {
+            printAnswer(presenter.getTree());
+        } else {
+            System.out.println("Вы ввели некорректные значения.");
+        }
         }
 
 }

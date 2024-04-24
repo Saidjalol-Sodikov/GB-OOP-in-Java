@@ -3,7 +3,6 @@ package ru.gb.family_tree.model.service;
 import ru.gb.family_tree.model.human.Gender;
 import ru.gb.family_tree.model.human.Human;
 import ru.gb.family_tree.model.tree.Tree;
-import ru.gb.family_tree.model.writer.FileHandler;
 import ru.gb.family_tree.model.writer.Writable;
 import ru.gb.family_tree.view.ViewGender;
 
@@ -16,9 +15,9 @@ public class HumanFamilyTree implements FamilyTreeService {
 
     //Пока работаю только с одним древом, в дальнейшем можно создать список деревьев
 
-    public HumanFamilyTree() {
+    public HumanFamilyTree(Writable writable) {
         tree = new Tree<>();
-        fH = new FileHandler();
+        fH = writable;
     }
 
 
@@ -81,11 +80,11 @@ public class HumanFamilyTree implements FamilyTreeService {
         return null;
     }
 
-    public void addParentByID(int parentID, int childID) {
+    public boolean addParentByID(int parentID, int childID) {
         if ((findByID(parentID) != null) && findByID(childID) != null){
             findByID(parentID).addChild(findByID(childID));
-        } else {
-            System.out.println("Данные ID не существуют.");
+            return true;
         }
+        return false;
     }
 }

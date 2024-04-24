@@ -15,5 +15,5 @@ public interface FamilyTreeService {
 
     void read();
 
-    void addParentByID(int parentID, int childID);
+    boolean addParentByID(int parentID, int childID);
 }
